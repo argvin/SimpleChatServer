@@ -1,0 +1,143 @@
+\hypertarget{chatServer_8cpp}{
+\section{chatServer.cpp File Reference}
+\label{chatServer_8cpp}\index{chatServer.cpp@{chatServer.cpp}}
+}
+
+
+Chat lookup server which forks child servers to deal with individual clients.  
+{\ttfamily \#include $<$iostream$>$}\par
+{\ttfamily \#include $<$fstream$>$}\par
+{\ttfamily \#include $<$vector$>$}\par
+{\ttfamily \#include $<$cmath$>$}\par
+{\ttfamily \#include $<$stdio.h$>$}\par
+{\ttfamily \#include $<$signal.h$>$}\par
+{\ttfamily \#include $<$unistd.h$>$}\par
+{\ttfamily \#include $<$stdlib.h$>$}\par
+{\ttfamily \#include $<$sys/socket.h$>$}\par
+{\ttfamily \#include $<$sys/types.h$>$}\par
+{\ttfamily \#include $<$sys/ipc.h$>$}\par
+{\ttfamily \#include $<$sys/sem.h$>$}\par
+{\ttfamily \#include $<$sys/shm.h$>$}\par
+{\ttfamily \#include $<$netinet/in.h$>$}\par
+{\ttfamily \#include $<$netdb.h$>$}\par
+{\ttfamily \#include $<$arpa/inet.h$>$}\par
+{\ttfamily \#include $<$errno.h$>$}\par
+{\ttfamily \#include \char`\"{}Msg.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}CSInfo.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{chatServer_8cpp_ac6f63e166ed9f454e73761c42e93a6ef}{addClient} (int numClients, const char $\ast$uname, sockaddr\_\-in \&cliaddr)
+\item 
+bool \hyperlink{chatServer_8cpp_a46428209d9a3bbb0b00c03588c12e203}{registerClient} (int cfd, stringstream \&ss, int cshm\_\-id, int csem\_\-id, int ssem\_\-id, int cliport, const char $\ast$ip)
+\item 
+void \hyperlink{chatServer_8cpp_af8bbdc64d9b257d0841729cf2e00ac4b}{printTheShm} (int numClients)
+\item 
+void \hyperlink{chatServer_8cpp_a34f7c29c8d0774952b9039baa0f65c99}{childServer} (int cfd, stringstream \&ss, int clientNum)
+\item 
+void \hyperlink{chatServer_8cpp_a08bb1c55be72939193e0504ed936e997}{removeClient} (const char $\ast$uname)
+\item 
+int \hyperlink{chatServer_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structCLIENT__DIR}{CLIENT\_\-DIR} $\ast$ \hyperlink{chatServer_8cpp_ae02c6beeab68e3a6008141916edda78b}{dir}
+\item 
+vector$<$ int $>$ \hyperlink{chatServer_8cpp_a3705388b5ee7a03f4d62d5c0b97e9fef}{iports}
+\item 
+int \hyperlink{chatServer_8cpp_a2d73f11fa9b5c90d5ef20e511ba391c0}{aports} \mbox{[}MAX\_\-CLIENTS\mbox{]}
+\item 
+char \hyperlink{chatServer_8cpp_a4dcd3ed92295ad53355794e46fd275a0}{ips} \mbox{[}10\mbox{]}\mbox{[}16\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Chat lookup server which forks child servers to deal with individual clients. \begin{DoxyAuthor}{Author}
+Vincent Hornak
+\end{DoxyAuthor}
+\par
+Course: CSC552 \par
+Assignment: p3 \par
+Date: 12/10/18 \par
+Purpose: practice using sockets for IPC, shared memory, and semaphores.
+
+Clients connect to the server with TCP/IP, and uses that socket connection to receive information about other users stored in shared memory. 
+
+Definition in file \hyperlink{chatServer_8cpp_source}{chatServer.cpp}.
+
+\subsection{Function Documentation}
+\hypertarget{chatServer_8cpp_ac6f63e166ed9f454e73761c42e93a6ef}{
+\index{chatServer.cpp@{chatServer.cpp}!addClient@{addClient}}
+\index{addClient@{addClient}!chatServer.cpp@{chatServer.cpp}}
+\subsubsection[{addClient}]{\setlength{\rightskip}{0pt plus 5cm}bool addClient (int {\em numClients}, \/  const char $\ast$ {\em uname}, \/  sockaddr\_\-in \& {\em cliaddr})}}
+\label{chatServer_8cpp_ac6f63e166ed9f454e73761c42e93a6ef}
+
+
+Definition at line 278 of file chatServer.cpp.\hypertarget{chatServer_8cpp_a34f7c29c8d0774952b9039baa0f65c99}{
+\index{chatServer.cpp@{chatServer.cpp}!childServer@{childServer}}
+\index{childServer@{childServer}!chatServer.cpp@{chatServer.cpp}}
+\subsubsection[{childServer}]{\setlength{\rightskip}{0pt plus 5cm}void childServer (int {\em cfd}, \/  stringstream \& {\em ss}, \/  int {\em clientNum})}}
+\label{chatServer_8cpp_a34f7c29c8d0774952b9039baa0f65c99}
+
+
+Definition at line 176 of file chatServer.cpp.\hypertarget{chatServer_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{
+\index{chatServer.cpp@{chatServer.cpp}!main@{main}}
+\index{main@{main}!chatServer.cpp@{chatServer.cpp}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (int {\em argc}, \/  char $\ast$ {\em argv}\mbox{[}$\,$\mbox{]})}}
+\label{chatServer_8cpp_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+Definition at line 85 of file chatServer.cpp.\hypertarget{chatServer_8cpp_af8bbdc64d9b257d0841729cf2e00ac4b}{
+\index{chatServer.cpp@{chatServer.cpp}!printTheShm@{printTheShm}}
+\index{printTheShm@{printTheShm}!chatServer.cpp@{chatServer.cpp}}
+\subsubsection[{printTheShm}]{\setlength{\rightskip}{0pt plus 5cm}void printTheShm (int {\em numClients})}}
+\label{chatServer_8cpp_af8bbdc64d9b257d0841729cf2e00ac4b}
+
+
+Definition at line 291 of file chatServer.cpp.\hypertarget{chatServer_8cpp_a46428209d9a3bbb0b00c03588c12e203}{
+\index{chatServer.cpp@{chatServer.cpp}!registerClient@{registerClient}}
+\index{registerClient@{registerClient}!chatServer.cpp@{chatServer.cpp}}
+\subsubsection[{registerClient}]{\setlength{\rightskip}{0pt plus 5cm}bool registerClient (int {\em cfd}, \/  stringstream \& {\em ss}, \/  int {\em cshm\_\-id}, \/  int {\em csem\_\-id}, \/  int {\em ssem\_\-id}, \/  int {\em cliport}, \/  const char $\ast$ {\em ip})}}
+\label{chatServer_8cpp_a46428209d9a3bbb0b00c03588c12e203}
+
+
+Definition at line 230 of file chatServer.cpp.\hypertarget{chatServer_8cpp_a08bb1c55be72939193e0504ed936e997}{
+\index{chatServer.cpp@{chatServer.cpp}!removeClient@{removeClient}}
+\index{removeClient@{removeClient}!chatServer.cpp@{chatServer.cpp}}
+\subsubsection[{removeClient}]{\setlength{\rightskip}{0pt plus 5cm}void removeClient (const char $\ast$ {\em uname})}}
+\label{chatServer_8cpp_a08bb1c55be72939193e0504ed936e997}
+
+
+Definition at line 165 of file chatServer.cpp.
+
+\subsection{Variable Documentation}
+\hypertarget{chatServer_8cpp_a2d73f11fa9b5c90d5ef20e511ba391c0}{
+\index{chatServer.cpp@{chatServer.cpp}!aports@{aports}}
+\index{aports@{aports}!chatServer.cpp@{chatServer.cpp}}
+\subsubsection[{aports}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf aports}\mbox{[}MAX\_\-CLIENTS\mbox{]}}}
+\label{chatServer_8cpp_a2d73f11fa9b5c90d5ef20e511ba391c0}
+
+
+Definition at line 81 of file chatServer.cpp.\hypertarget{chatServer_8cpp_ae02c6beeab68e3a6008141916edda78b}{
+\index{chatServer.cpp@{chatServer.cpp}!dir@{dir}}
+\index{dir@{dir}!chatServer.cpp@{chatServer.cpp}}
+\subsubsection[{dir}]{\setlength{\rightskip}{0pt plus 5cm}{\bf CLIENT\_\-DIR}$\ast$ {\bf dir}}}
+\label{chatServer_8cpp_ae02c6beeab68e3a6008141916edda78b}
+
+
+Definition at line 79 of file chatServer.cpp.\hypertarget{chatServer_8cpp_a3705388b5ee7a03f4d62d5c0b97e9fef}{
+\index{chatServer.cpp@{chatServer.cpp}!iports@{iports}}
+\index{iports@{iports}!chatServer.cpp@{chatServer.cpp}}
+\subsubsection[{iports}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$int$>$ {\bf iports}}}
+\label{chatServer_8cpp_a3705388b5ee7a03f4d62d5c0b97e9fef}
+
+
+Definition at line 80 of file chatServer.cpp.\hypertarget{chatServer_8cpp_a4dcd3ed92295ad53355794e46fd275a0}{
+\index{chatServer.cpp@{chatServer.cpp}!ips@{ips}}
+\index{ips@{ips}!chatServer.cpp@{chatServer.cpp}}
+\subsubsection[{ips}]{\setlength{\rightskip}{0pt plus 5cm}char {\bf ips}\mbox{[}10\mbox{]}\mbox{[}16\mbox{]}}}
+\label{chatServer_8cpp_a4dcd3ed92295ad53355794e46fd275a0}
+
+
+Definition at line 82 of file chatServer.cpp.

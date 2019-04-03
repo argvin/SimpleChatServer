@@ -1,0 +1,98 @@
+\hypertarget{chatClient_8cpp}{
+\section{chatClient.cpp File Reference}
+\label{chatClient_8cpp}\index{chatClient.cpp@{chatClient.cpp}}
+}
+{\ttfamily \#include $<$iostream$>$}\par
+{\ttfamily \#include $<$fstream$>$}\par
+{\ttfamily \#include $<$vector$>$}\par
+{\ttfamily \#include $<$cmath$>$}\par
+{\ttfamily \#include $<$stdio.h$>$}\par
+{\ttfamily \#include $<$signal.h$>$}\par
+{\ttfamily \#include $<$unistd.h$>$}\par
+{\ttfamily \#include $<$stdlib.h$>$}\par
+{\ttfamily \#include $<$string.h$>$}\par
+{\ttfamily \#include $<$sys/socket.h$>$}\par
+{\ttfamily \#include $<$sys/types.h$>$}\par
+{\ttfamily \#include $<$sys/ipc.h$>$}\par
+{\ttfamily \#include $<$sys/sem.h$>$}\par
+{\ttfamily \#include $<$sys/shm.h$>$}\par
+{\ttfamily \#include $<$netinet/in.h$>$}\par
+{\ttfamily \#include $<$netdb.h$>$}\par
+{\ttfamily \#include $<$arpa/inet.h$>$}\par
+{\ttfamily \#include $<$errno.h$>$}\par
+{\ttfamily \#include $<$sys/termios.h$>$}\par
+{\ttfamily \#include \char`\"{}Msg.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}CSInfo.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{chatClient_8cpp_aeaa5cec68f760e40a51f66f93f6b1506}{displayMenu} ()
+\begin{DoxyCompactList}\small\item\em displays the menu describing valid user input \item\end{DoxyCompactList}\item 
+bool \hyperlink{chatClient_8cpp_ab669f193345daf1542d1cc3ca6ec17cc}{initClient} (int sfd, char $\ast$inbound, stringstream \&ss, int \&shmid, int \&semid)
+\item 
+bool \hyperlink{chatClient_8cpp_a0133b1d521e4628e7ffa812401e42b47}{registerClient} (char $\ast$uname, int \&myidx)
+\item 
+void \hyperlink{chatClient_8cpp_aa594fce724d61d0087fb9ca98b9d6ec2}{list} ()
+\begin{DoxyCompactList}\small\item\em prints the clients in shared memory \item\end{DoxyCompactList}\item 
+int \hyperlink{chatClient_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em dir is shmem layout, see \hyperlink{CSInfo_8h}{CSInfo.h} \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structLOCAL__DIR}{LOCAL\_\-DIR} $\ast$ \hyperlink{chatClient_8cpp_ae924dd62804a8017cda9306738aa51a4}{dir}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{chatClient_8cpp_aeaa5cec68f760e40a51f66f93f6b1506}{
+\index{chatClient.cpp@{chatClient.cpp}!displayMenu@{displayMenu}}
+\index{displayMenu@{displayMenu}!chatClient.cpp@{chatClient.cpp}}
+\subsubsection[{displayMenu}]{\setlength{\rightskip}{0pt plus 5cm}displayMenu ()}}
+\label{chatClient_8cpp_aeaa5cec68f760e40a51f66f93f6b1506}
+
+
+displays the menu describing valid user input \hypertarget{chatClient_8cpp_ab669f193345daf1542d1cc3ca6ec17cc}{
+\index{chatClient.cpp@{chatClient.cpp}!initClient@{initClient}}
+\index{initClient@{initClient}!chatClient.cpp@{chatClient.cpp}}
+\subsubsection[{initClient}]{\setlength{\rightskip}{0pt plus 5cm}bool initClient (int {\em sfd}, \/  char $\ast$ {\em inbound}, \/  stringstream \& {\em ss}, \/  int \& {\em shmid}, \/  int \& {\em semid})}}
+\label{chatClient_8cpp_ab669f193345daf1542d1cc3ca6ec17cc}
+
+
+Definition at line 250 of file chatClient.cpp.\hypertarget{chatClient_8cpp_aa594fce724d61d0087fb9ca98b9d6ec2}{
+\index{chatClient.cpp@{chatClient.cpp}!list@{list}}
+\index{list@{list}!chatClient.cpp@{chatClient.cpp}}
+\subsubsection[{list}]{\setlength{\rightskip}{0pt plus 5cm}void list ()}}
+\label{chatClient_8cpp_aa594fce724d61d0087fb9ca98b9d6ec2}
+
+
+prints the clients in shared memory 
+
+Definition at line 277 of file chatClient.cpp.\hypertarget{chatClient_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{
+\index{chatClient.cpp@{chatClient.cpp}!main@{main}}
+\index{main@{main}!chatClient.cpp@{chatClient.cpp}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (int {\em argc}, \/  char $\ast$ {\em argv}\mbox{[}$\,$\mbox{]})}}
+\label{chatClient_8cpp_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+dir is shmem layout, see \hyperlink{CSInfo_8h}{CSInfo.h} 
+
+set of fds for reading 
+
+Definition at line 68 of file chatClient.cpp.\hypertarget{chatClient_8cpp_a0133b1d521e4628e7ffa812401e42b47}{
+\index{chatClient.cpp@{chatClient.cpp}!registerClient@{registerClient}}
+\index{registerClient@{registerClient}!chatClient.cpp@{chatClient.cpp}}
+\subsubsection[{registerClient}]{\setlength{\rightskip}{0pt plus 5cm}bool registerClient (char $\ast$ {\em uname}, \/  int \& {\em myidx})}}
+\label{chatClient_8cpp_a0133b1d521e4628e7ffa812401e42b47}
+
+
+Definition at line 261 of file chatClient.cpp.
+
+\subsection{Variable Documentation}
+\hypertarget{chatClient_8cpp_ae924dd62804a8017cda9306738aa51a4}{
+\index{chatClient.cpp@{chatClient.cpp}!dir@{dir}}
+\index{dir@{dir}!chatClient.cpp@{chatClient.cpp}}
+\subsubsection[{dir}]{\setlength{\rightskip}{0pt plus 5cm}{\bf LOCAL\_\-DIR}$\ast$ {\bf dir}}}
+\label{chatClient_8cpp_ae924dd62804a8017cda9306738aa51a4}
+
+
+Definition at line 66 of file chatClient.cpp.

@@ -1,0 +1,200 @@
+\hypertarget{CSInfo_8h}{
+\section{CSInfo.h File Reference}
+\label{CSInfo_8h}\index{CSInfo.h@{CSInfo.h}}
+}
+
+
+contains structs, constants, and utility functions shared among client.cpp and server.cpp  
+{\ttfamily \#include $<$time.h$>$}\par
+{\ttfamily \#include $<$map$>$}\par
+{\ttfamily \#include $<$utility$>$}\par
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structLOCAL__INFO}{LOCAL\_\-INFO}
+\begin{DoxyCompactList}\small\item\em info stored on the local clients shmem \item\end{DoxyCompactList}\item 
+struct \hyperlink{structLOCAL__DIR}{LOCAL\_\-DIR}
+\begin{DoxyCompactList}\small\item\em the local clients shmem layout \item\end{DoxyCompactList}\item 
+struct \hyperlink{structCLIENT__INFO}{CLIENT\_\-INFO}
+\begin{DoxyCompactList}\small\item\em info stored on the server's shmem \item\end{DoxyCompactList}\item 
+struct \hyperlink{structCLIENT__DIR}{CLIENT\_\-DIR}
+\begin{DoxyCompactList}\small\item\em layout of the server shmem \item\end{DoxyCompactList}\item 
+union \hyperlink{unionsemun}{semun}
+\begin{DoxyCompactList}\small\item\em struct used for sems \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{CSInfo_8h_a547b608b96c8810381adf6c3adcad91f}{SERV\_\-ADDR}~\char`\"{}156.12.127.18\char`\"{}
+\item 
+\#define \hyperlink{CSInfo_8h_a40a676399a9ef79941c9f49eaab76129}{SERV\_\-WKPORT}~15080
+\item 
+\#define \hyperlink{CSInfo_8h_a0a8f91f93d75a07f0ae45077db45b3eb}{MAX\_\-CLIENTS}~10
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{CSInfo_8h_af327ec957492e4a438b3085ffaebb5df}{createSem} (int key)
+\item 
+{\footnotesize template$<$class T $>$ }\\int \hyperlink{CSInfo_8h_ad3750ab00f79d9e46eb9447142cb617e}{createShm} (int key)
+\item 
+void \hyperlink{CSInfo_8h_a4ade1556d7a649fbacc774afc2706919}{initSem} (int semid, \hyperlink{unionsemun}{semun} \&semInfo, \hyperlink{unionsemun}{semun} \&semData)
+\item 
+{\footnotesize template$<$class T $>$ }\\void \hyperlink{CSInfo_8h_a0639517fe1ea6dac92211df4385f3289}{attachShm} (int id, T $\ast$\&\hyperlink{chatServer_8cpp_ae02c6beeab68e3a6008141916edda78b}{dir})
+\item 
+{\footnotesize template$<$class T $>$ }\\void \hyperlink{CSInfo_8h_a2af4d7aed8147bed70420197fc8a221d}{cleanExit} (T $\ast$shmptr, int shmid, int semid)
+\item 
+void \hyperlink{CSInfo_8h_a99e38133d0127a02cedb80cce434eb23}{initPorts} (vector$<$ int $>$ \&\hyperlink{chatServer_8cpp_a3705388b5ee7a03f4d62d5c0b97e9fef}{iports}, int start, int end)
+\item 
+int \hyperlink{CSInfo_8h_acc32e1b402a85088d548508317480389}{getPort} (\hyperlink{structCLIENT__DIR}{CLIENT\_\-DIR} $\ast$\hyperlink{chatServer_8cpp_ae02c6beeab68e3a6008141916edda78b}{dir}, vector$<$ int $>$ \&\hyperlink{chatServer_8cpp_a3705388b5ee7a03f4d62d5c0b97e9fef}{iports}, int \hyperlink{chatServer_8cpp_a2d73f11fa9b5c90d5ef20e511ba391c0}{aports}\mbox{[}$\,$\mbox{]})
+\item 
+bool \hyperlink{CSInfo_8h_a7c41879b04bde8245c694d8691d330ff}{search} (\hyperlink{structCLIENT__DIR}{CLIENT\_\-DIR} $\ast$\hyperlink{chatServer_8cpp_ae02c6beeab68e3a6008141916edda78b}{dir}, const char $\ast$uname, int \&spot)
+\item 
+int \hyperlink{CSInfo_8h_a47d7dfcf111229a88678b3c5bc780013}{createMainSock} (sockaddr\_\-in \&s\_\-addr, int port, const char $\ast$ip)
+\item 
+void \hyperlink{CSInfo_8h_adb9f91f61879a1c0b7779b6e64336cca}{initSockAddr} (int port, const char $\ast$ip, sockaddr\_\-in \&saddr)
+\item 
+sockaddr\_\-in \hyperlink{CSInfo_8h_a76cbf58235b2631b8734a992ddaba0a8}{createUDPSock} (int cliport, const char $\ast$ip, int \&sockfd)
+\item 
+bool \hyperlink{CSInfo_8h_aab633dc869407d0ee14415b66c5afb94}{upcmp} (char $\ast$in, const char $\ast$cmp)
+\item 
+bool \hyperlink{CSInfo_8h_a72d0f28735b5603a283ad5bb8296e5f9}{ipMapInsert} (map$<$ string, pair$<$ int, int $>$ $>$ \&ipMap, string ip, pair$<$ int, int $>$ shmsem)
+\item 
+bool \hyperlink{CSInfo_8h_affd2c49556f97294564e2fc711364262}{need2RegisterIp} (map$<$ string, pair$<$ int, int $>$ $>$ \&ipMap, string ip)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+contains structs, constants, and utility functions shared among client.cpp and server.cpp \begin{DoxyAuthor}{Author}
+Vincent Hornak
+\end{DoxyAuthor}
+\par
+Course: CSC552 \par
+Assignment: p3 \par
+Date: 12/10/18 
+
+Definition in file \hyperlink{CSInfo_8h_source}{CSInfo.h}.
+
+\subsection{Define Documentation}
+\hypertarget{CSInfo_8h_a0a8f91f93d75a07f0ae45077db45b3eb}{
+\index{CSInfo.h@{CSInfo.h}!MAX\_\-CLIENTS@{MAX\_\-CLIENTS}}
+\index{MAX\_\-CLIENTS@{MAX\_\-CLIENTS}!CSInfo.h@{CSInfo.h}}
+\subsubsection[{MAX\_\-CLIENTS}]{\setlength{\rightskip}{0pt plus 5cm}\#define MAX\_\-CLIENTS~10}}
+\label{CSInfo_8h_a0a8f91f93d75a07f0ae45077db45b3eb}
+
+
+Definition at line 20 of file CSInfo.h.\hypertarget{CSInfo_8h_a547b608b96c8810381adf6c3adcad91f}{
+\index{CSInfo.h@{CSInfo.h}!SERV\_\-ADDR@{SERV\_\-ADDR}}
+\index{SERV\_\-ADDR@{SERV\_\-ADDR}!CSInfo.h@{CSInfo.h}}
+\subsubsection[{SERV\_\-ADDR}]{\setlength{\rightskip}{0pt plus 5cm}\#define SERV\_\-ADDR~\char`\"{}156.12.127.18\char`\"{}}}
+\label{CSInfo_8h_a547b608b96c8810381adf6c3adcad91f}
+
+
+Definition at line 18 of file CSInfo.h.\hypertarget{CSInfo_8h_a40a676399a9ef79941c9f49eaab76129}{
+\index{CSInfo.h@{CSInfo.h}!SERV\_\-WKPORT@{SERV\_\-WKPORT}}
+\index{SERV\_\-WKPORT@{SERV\_\-WKPORT}!CSInfo.h@{CSInfo.h}}
+\subsubsection[{SERV\_\-WKPORT}]{\setlength{\rightskip}{0pt plus 5cm}\#define SERV\_\-WKPORT~15080}}
+\label{CSInfo_8h_a40a676399a9ef79941c9f49eaab76129}
+
+
+Definition at line 19 of file CSInfo.h.
+
+\subsection{Function Documentation}
+\hypertarget{CSInfo_8h_a0639517fe1ea6dac92211df4385f3289}{
+\index{CSInfo.h@{CSInfo.h}!attachShm@{attachShm}}
+\index{attachShm@{attachShm}!CSInfo.h@{CSInfo.h}}
+\subsubsection[{attachShm}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void attachShm (int {\em id}, \/  T $\ast$\& {\em dir})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{CSInfo_8h_a0639517fe1ea6dac92211df4385f3289}
+
+
+Definition at line 123 of file CSInfo.h.\hypertarget{CSInfo_8h_a2af4d7aed8147bed70420197fc8a221d}{
+\index{CSInfo.h@{CSInfo.h}!cleanExit@{cleanExit}}
+\index{cleanExit@{cleanExit}!CSInfo.h@{CSInfo.h}}
+\subsubsection[{cleanExit}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void cleanExit (T $\ast$ {\em shmptr}, \/  int {\em shmid}, \/  int {\em semid})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{CSInfo_8h_a2af4d7aed8147bed70420197fc8a221d}
+
+
+Definition at line 135 of file CSInfo.h.\hypertarget{CSInfo_8h_a47d7dfcf111229a88678b3c5bc780013}{
+\index{CSInfo.h@{CSInfo.h}!createMainSock@{createMainSock}}
+\index{createMainSock@{createMainSock}!CSInfo.h@{CSInfo.h}}
+\subsubsection[{createMainSock}]{\setlength{\rightskip}{0pt plus 5cm}int createMainSock (sockaddr\_\-in \& {\em s\_\-addr}, \/  int {\em port}, \/  const char $\ast$ {\em ip})}}
+\label{CSInfo_8h_a47d7dfcf111229a88678b3c5bc780013}
+
+
+Definition at line 206 of file CSInfo.h.\hypertarget{CSInfo_8h_af327ec957492e4a438b3085ffaebb5df}{
+\index{CSInfo.h@{CSInfo.h}!createSem@{createSem}}
+\index{createSem@{createSem}!CSInfo.h@{CSInfo.h}}
+\subsubsection[{createSem}]{\setlength{\rightskip}{0pt plus 5cm}int createSem (int {\em key})}}
+\label{CSInfo_8h_af327ec957492e4a438b3085ffaebb5df}
+
+
+Definition at line 69 of file CSInfo.h.\hypertarget{CSInfo_8h_ad3750ab00f79d9e46eb9447142cb617e}{
+\index{CSInfo.h@{CSInfo.h}!createShm@{createShm}}
+\index{createShm@{createShm}!CSInfo.h@{CSInfo.h}}
+\subsubsection[{createShm}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ int createShm (int {\em key})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{CSInfo_8h_ad3750ab00f79d9e46eb9447142cb617e}
+
+
+Definition at line 87 of file CSInfo.h.\hypertarget{CSInfo_8h_a76cbf58235b2631b8734a992ddaba0a8}{
+\index{CSInfo.h@{CSInfo.h}!createUDPSock@{createUDPSock}}
+\index{createUDPSock@{createUDPSock}!CSInfo.h@{CSInfo.h}}
+\subsubsection[{createUDPSock}]{\setlength{\rightskip}{0pt plus 5cm}sockaddr\_\-in createUDPSock (int {\em cliport}, \/  const char $\ast$ {\em ip}, \/  int \& {\em sockfd})}}
+\label{CSInfo_8h_a76cbf58235b2631b8734a992ddaba0a8}
+
+
+Definition at line 236 of file CSInfo.h.\hypertarget{CSInfo_8h_acc32e1b402a85088d548508317480389}{
+\index{CSInfo.h@{CSInfo.h}!getPort@{getPort}}
+\index{getPort@{getPort}!CSInfo.h@{CSInfo.h}}
+\subsubsection[{getPort}]{\setlength{\rightskip}{0pt plus 5cm}int getPort ({\bf CLIENT\_\-DIR} $\ast$ {\em dir}, \/  vector$<$ int $>$ \& {\em iports}, \/  int {\em aports}\mbox{[}$\,$\mbox{]})}}
+\label{CSInfo_8h_acc32e1b402a85088d548508317480389}
+
+
+Definition at line 169 of file CSInfo.h.\hypertarget{CSInfo_8h_a99e38133d0127a02cedb80cce434eb23}{
+\index{CSInfo.h@{CSInfo.h}!initPorts@{initPorts}}
+\index{initPorts@{initPorts}!CSInfo.h@{CSInfo.h}}
+\subsubsection[{initPorts}]{\setlength{\rightskip}{0pt plus 5cm}void initPorts (vector$<$ int $>$ \& {\em iports}, \/  int {\em start}, \/  int {\em end})}}
+\label{CSInfo_8h_a99e38133d0127a02cedb80cce434eb23}
+
+
+Definition at line 154 of file CSInfo.h.\hypertarget{CSInfo_8h_a4ade1556d7a649fbacc774afc2706919}{
+\index{CSInfo.h@{CSInfo.h}!initSem@{initSem}}
+\index{initSem@{initSem}!CSInfo.h@{CSInfo.h}}
+\subsubsection[{initSem}]{\setlength{\rightskip}{0pt plus 5cm}void initSem (int {\em semid}, \/  {\bf semun} \& {\em semInfo}, \/  {\bf semun} \& {\em semData})}}
+\label{CSInfo_8h_a4ade1556d7a649fbacc774afc2706919}
+
+
+Definition at line 108 of file CSInfo.h.\hypertarget{CSInfo_8h_adb9f91f61879a1c0b7779b6e64336cca}{
+\index{CSInfo.h@{CSInfo.h}!initSockAddr@{initSockAddr}}
+\index{initSockAddr@{initSockAddr}!CSInfo.h@{CSInfo.h}}
+\subsubsection[{initSockAddr}]{\setlength{\rightskip}{0pt plus 5cm}void initSockAddr (int {\em port}, \/  const char $\ast$ {\em ip}, \/  sockaddr\_\-in \& {\em saddr})}}
+\label{CSInfo_8h_adb9f91f61879a1c0b7779b6e64336cca}
+
+
+Definition at line 223 of file CSInfo.h.\hypertarget{CSInfo_8h_a72d0f28735b5603a283ad5bb8296e5f9}{
+\index{CSInfo.h@{CSInfo.h}!ipMapInsert@{ipMapInsert}}
+\index{ipMapInsert@{ipMapInsert}!CSInfo.h@{CSInfo.h}}
+\subsubsection[{ipMapInsert}]{\setlength{\rightskip}{0pt plus 5cm}bool ipMapInsert (map$<$ string, pair$<$ int, int $>$ $>$ \& {\em ipMap}, \/  string {\em ip}, \/  pair$<$ int, int $>$ {\em shmsem})}}
+\label{CSInfo_8h_a72d0f28735b5603a283ad5bb8296e5f9}
+
+
+Definition at line 273 of file CSInfo.h.\hypertarget{CSInfo_8h_affd2c49556f97294564e2fc711364262}{
+\index{CSInfo.h@{CSInfo.h}!need2RegisterIp@{need2RegisterIp}}
+\index{need2RegisterIp@{need2RegisterIp}!CSInfo.h@{CSInfo.h}}
+\subsubsection[{need2RegisterIp}]{\setlength{\rightskip}{0pt plus 5cm}bool need2RegisterIp (map$<$ string, pair$<$ int, int $>$ $>$ \& {\em ipMap}, \/  string {\em ip})}}
+\label{CSInfo_8h_affd2c49556f97294564e2fc711364262}
+
+
+Definition at line 292 of file CSInfo.h.\hypertarget{CSInfo_8h_a7c41879b04bde8245c694d8691d330ff}{
+\index{CSInfo.h@{CSInfo.h}!search@{search}}
+\index{search@{search}!CSInfo.h@{CSInfo.h}}
+\subsubsection[{search}]{\setlength{\rightskip}{0pt plus 5cm}bool search ({\bf CLIENT\_\-DIR} $\ast$ {\em dir}, \/  const char $\ast$ {\em uname}, \/  int \& {\em spot})}}
+\label{CSInfo_8h_a7c41879b04bde8245c694d8691d330ff}
+
+
+Definition at line 188 of file CSInfo.h.\hypertarget{CSInfo_8h_aab633dc869407d0ee14415b66c5afb94}{
+\index{CSInfo.h@{CSInfo.h}!upcmp@{upcmp}}
+\index{upcmp@{upcmp}!CSInfo.h@{CSInfo.h}}
+\subsubsection[{upcmp}]{\setlength{\rightskip}{0pt plus 5cm}bool upcmp (char $\ast$ {\em in}, \/  const char $\ast$ {\em cmp})}}
+\label{CSInfo_8h_aab633dc869407d0ee14415b66c5afb94}
+
+
+Definition at line 254 of file CSInfo.h.

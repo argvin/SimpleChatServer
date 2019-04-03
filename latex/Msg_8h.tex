@@ -1,0 +1,106 @@
+\hypertarget{Msg_8h}{
+\section{Msg.h File Reference}
+\label{Msg_8h}\index{Msg.h@{Msg.h}}
+}
+
+
+contains message related constants and functions  
+{\ttfamily \#include $<$string.h$>$}\par
+{\ttfamily \#include $<$string$>$}\par
+{\ttfamily \#include $<$sstream$>$}\par
+\subsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{Msg_8h_a0592dba56693fad79136250c11e5a7fe}{MAX\_\-SIZE}~4096
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{Msg_8h_a3010f28803145d5ca1b8475793ee2756}{resetSS} (stringstream \&ss)
+\item 
+int \hyperlink{Msg_8h_abf3aa0067dd2353bf61975b733d63edd}{sendMsg} (int fd, const char $\ast$msg)
+\item 
+int \hyperlink{Msg_8h_a8de007111387489094af505e5eef7f61}{recvMsg} (int fd, char $\ast$msg, int size)
+\item 
+{\footnotesize template$<$class T $>$ }\\int \hyperlink{Msg_8h_ab95bc034477cacfd3cc370167a6fc165}{unpackMsg} (char $\ast$msg, stringstream \&ss, T \&i1)
+\item 
+{\footnotesize template$<$class T , class U $>$ }\\int \hyperlink{Msg_8h_ad0bb347d6c586eacb6804d721f1029b3}{unpackMsg} (char $\ast$msg, stringstream \&ss, T \&i1, U \&i2)
+\item 
+{\footnotesize template$<$class T , class U , class V $>$ }\\int \hyperlink{Msg_8h_a4744cdeb772cf00c4250dcebfd49400b}{unpackMsg} (char $\ast$msg, stringstream \&ss, T \&i1, U \&i2, V \&i3)
+\item 
+void \hyperlink{Msg_8h_a1b3101b82e34cae4099ac3b2386a75e9}{getShmSem} (int cfd, stringstream \&ss, char $\ast$inbound, int \&shmid, int \&semid)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+contains message related constants and functions \begin{DoxyAuthor}{Author}
+Vincent Hornak
+\end{DoxyAuthor}
+\par
+Course: CSC552 \par
+Assignment: p3 \par
+Date: 12/10/18 
+
+Definition in file \hyperlink{Msg_8h_source}{Msg.h}.
+
+\subsection{Define Documentation}
+\hypertarget{Msg_8h_a0592dba56693fad79136250c11e5a7fe}{
+\index{Msg.h@{Msg.h}!MAX\_\-SIZE@{MAX\_\-SIZE}}
+\index{MAX\_\-SIZE@{MAX\_\-SIZE}!Msg.h@{Msg.h}}
+\subsubsection[{MAX\_\-SIZE}]{\setlength{\rightskip}{0pt plus 5cm}\#define MAX\_\-SIZE~4096}}
+\label{Msg_8h_a0592dba56693fad79136250c11e5a7fe}
+
+
+Definition at line 18 of file Msg.h.
+
+\subsection{Function Documentation}
+\hypertarget{Msg_8h_a1b3101b82e34cae4099ac3b2386a75e9}{
+\index{Msg.h@{Msg.h}!getShmSem@{getShmSem}}
+\index{getShmSem@{getShmSem}!Msg.h@{Msg.h}}
+\subsubsection[{getShmSem}]{\setlength{\rightskip}{0pt plus 5cm}void getShmSem (int {\em cfd}, \/  stringstream \& {\em ss}, \/  char $\ast$ {\em inbound}, \/  int \& {\em shmid}, \/  int \& {\em semid})}}
+\label{Msg_8h_a1b3101b82e34cae4099ac3b2386a75e9}
+
+
+Definition at line 133 of file Msg.h.\hypertarget{Msg_8h_a8de007111387489094af505e5eef7f61}{
+\index{Msg.h@{Msg.h}!recvMsg@{recvMsg}}
+\index{recvMsg@{recvMsg}!Msg.h@{Msg.h}}
+\subsubsection[{recvMsg}]{\setlength{\rightskip}{0pt plus 5cm}int recvMsg (int {\em fd}, \/  char $\ast$ {\em msg}, \/  int {\em size})}}
+\label{Msg_8h_a8de007111387489094af505e5eef7f61}
+
+
+Definition at line 53 of file Msg.h.\hypertarget{Msg_8h_a3010f28803145d5ca1b8475793ee2756}{
+\index{Msg.h@{Msg.h}!resetSS@{resetSS}}
+\index{resetSS@{resetSS}!Msg.h@{Msg.h}}
+\subsubsection[{resetSS}]{\setlength{\rightskip}{0pt plus 5cm}void resetSS (stringstream \& {\em ss})}}
+\label{Msg_8h_a3010f28803145d5ca1b8475793ee2756}
+
+
+Definition at line 26 of file Msg.h.\hypertarget{Msg_8h_abf3aa0067dd2353bf61975b733d63edd}{
+\index{Msg.h@{Msg.h}!sendMsg@{sendMsg}}
+\index{sendMsg@{sendMsg}!Msg.h@{Msg.h}}
+\subsubsection[{sendMsg}]{\setlength{\rightskip}{0pt plus 5cm}int sendMsg (int {\em fd}, \/  const char $\ast$ {\em msg})}}
+\label{Msg_8h_abf3aa0067dd2353bf61975b733d63edd}
+
+
+Definition at line 37 of file Msg.h.\hypertarget{Msg_8h_a4744cdeb772cf00c4250dcebfd49400b}{
+\index{Msg.h@{Msg.h}!unpackMsg@{unpackMsg}}
+\index{unpackMsg@{unpackMsg}!Msg.h@{Msg.h}}
+\subsubsection[{unpackMsg}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T , class U , class V $>$ int unpackMsg (char $\ast$ {\em msg}, \/  stringstream \& {\em ss}, \/  T \& {\em i1}, \/  U \& {\em i2}, \/  V \& {\em i3})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{Msg_8h_a4744cdeb772cf00c4250dcebfd49400b}
+
+
+Definition at line 114 of file Msg.h.\hypertarget{Msg_8h_ad0bb347d6c586eacb6804d721f1029b3}{
+\index{Msg.h@{Msg.h}!unpackMsg@{unpackMsg}}
+\index{unpackMsg@{unpackMsg}!Msg.h@{Msg.h}}
+\subsubsection[{unpackMsg}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T , class U $>$ int unpackMsg (char $\ast$ {\em msg}, \/  stringstream \& {\em ss}, \/  T \& {\em i1}, \/  U \& {\em i2})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{Msg_8h_ad0bb347d6c586eacb6804d721f1029b3}
+
+
+Definition at line 92 of file Msg.h.\hypertarget{Msg_8h_ab95bc034477cacfd3cc370167a6fc165}{
+\index{Msg.h@{Msg.h}!unpackMsg@{unpackMsg}}
+\index{unpackMsg@{unpackMsg}!Msg.h@{Msg.h}}
+\subsubsection[{unpackMsg}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ int unpackMsg (char $\ast$ {\em msg}, \/  stringstream \& {\em ss}, \/  T \& {\em i1})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{Msg_8h_ab95bc034477cacfd3cc370167a6fc165}
+
+
+Definition at line 71 of file Msg.h.
