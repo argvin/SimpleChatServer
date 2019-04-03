@@ -3,18 +3,25 @@
 all: client server 
 
 .PHONY: client
-client: chatClient.cpp
-	g++ -o client chatClient.cpp -g
+client: ./src/chatClient.cpp
+	g++ -o client ./src/chatClient.cpp -g
+	mv client ./bin/
 .PHONY: server
-server: chatServer.cpp
-	g++ -o server chatServer.cpp -g
+server: ./src/chatServer.cpp
+	g++ -o server ./src/chatServer.cpp -g
+	mv server ./bin/
+
+.PHONY: clean
+clean:
+	rm ./bin/*
 
 .PHONY: open
 open:
-	vim *.cpp *.h README makefile 
+	vim ./src/*.cpp ./src/*.h README makefile 
 
 .PHONY: backup
 backup:
-	cp *.cpp *.h ./backup/
+	cp ./src/*.cpp ./src/*.h ./backup/
+
 
 	
